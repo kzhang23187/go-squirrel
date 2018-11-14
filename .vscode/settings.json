@@ -52,5 +52,10 @@
         "ProjectSettings/":true,
         "temp/":true,
         "Temp/":true
+<<<<<<< HEAD
     }
+=======
+    },
+    "workbench.colorTheme": "Solarized Light"
+>>>>>>> c39bf1733bf6dda3cd3e80f16afda74eb0709786
 }
