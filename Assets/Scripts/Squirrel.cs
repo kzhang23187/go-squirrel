@@ -19,8 +19,8 @@ public class Squirrel : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (isDead == false) {
 
+        if (isDead == false) {
             if (Input.GetMouseButtonUp(0))
             {
                 anim.SetTrigger("Walk");
@@ -28,10 +28,15 @@ public class Squirrel : MonoBehaviour {
             }
             if (Input.GetMouseButtonDown(0))
             {
+
                 anim.SetTrigger("Idle");
                 rb2d.velocity = new Vector2(GameControl.instance.scrollSpeed, 0);
                 return;
 
+            }
+            else if (transform.position.x > 0)
+            {
+                rb2d.velocity = new Vector2(0, 0);
             }
 
         }
