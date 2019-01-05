@@ -21,20 +21,29 @@ public class Squirrel : MonoBehaviour {
 	void Update () {
 
         if (isDead == false) {
+            int count = 0;
+
+            if (Input.GetMouseButton(0))
+            {
+                count = 1;
+            }
             if (Input.GetMouseButtonUp(0))
             {
                 anim.SetTrigger("Walk");
                 rb2d.velocity = new Vector2(speed, 0);
+                count = 0;
             }
             if (Input.GetMouseButtonDown(0))
             {
 
                 anim.SetTrigger("Idle");
                 rb2d.velocity = new Vector2(GameControl.instance.scrollSpeed, 0);
+                count = 1;
                 return;
 
             }
-            else if (transform.position.x > 0)
+
+            if (count != 1 && transform.position.x > 0)
             {
                 rb2d.velocity = new Vector2(0, 0);
             }
