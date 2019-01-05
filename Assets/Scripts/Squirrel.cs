@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Squirrel : MonoBehaviour {
 
-    public float speed = 1f;
+    public float speed = 1.1f;
 
     private Rigidbody2D rb2d;
     private bool isDead = false;
