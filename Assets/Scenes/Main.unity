@@ -954,7 +954,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4ced236fbfdd44ef8c4c64450480623, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roadPoolSize: 7
+  roadPoolSize: 4
   roadPrefab: {fileID: 1356382632307834, guid: 45fe73f4c1d9c401993152212748a9b7, type: 2}
   spawnRate: 2
 --- !u!114 &1438373644
