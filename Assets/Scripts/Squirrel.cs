@@ -9,7 +9,7 @@ public class Squirrel : MonoBehaviour {
     private Rigidbody2D rb2d;
     private bool isDead = false;
     private Animator anim;
-    public PolygonCollider2D[] colliders;
+    public Collider2D[] colliders;
     private int currentColliderIndex = 0;
 
     // Use this for initialization
