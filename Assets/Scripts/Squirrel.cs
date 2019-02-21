@@ -9,9 +9,11 @@ public class Squirrel : MonoBehaviour {
     private Rigidbody2D rb2d;
     private bool isDead = false;
     private Animator anim;
+    public PolygonCollider2D[] colliders;
+    private int currentColliderIndex = 0;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         rb2d = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
 
@@ -52,12 +54,18 @@ public class Squirrel : MonoBehaviour {
 
 		
 	}
+    public void SetColliderForSprite(int spriteNum)
+    {
+        colliders[currentColliderIndex].enabled = false;
+        currentColliderIndex = spriteNum;
+        colliders[currentColliderIndex].enabled = true;
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "road") {
             GameControl.instance.SquirrelScored();
         }
-        else {
+        else if (collision.gameObject.tag == "wall" || collision.gameObject.tag =="car") {
             isDead = true;
             rb2d.velocity = Vector2.zero;
             anim.SetTrigger("Die");
