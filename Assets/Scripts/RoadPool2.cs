@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RoadPool : MonoBehaviour {
+public class RoadPool2 : MonoBehaviour
+{
     public RepeatingBackground background;
     public int roadPoolSize = 5;
     public static GameObject[] roads;
@@ -22,7 +23,7 @@ public class RoadPool : MonoBehaviour {
     {
         currentRoadPosition = 0;
         double start = background.start;
-        roadPositions = new double[] {start + 1.16, start + 6.21, start + 11.53, start + 16.67};
+        roadPositions = new double[] { start + 1.16, start + 6.21, start + 11.53, start + 16.67 };
         roads = new GameObject[roadPoolSize];
         for (int i = 0; i < roadPoolSize; i++)
         {
@@ -30,14 +31,16 @@ public class RoadPool : MonoBehaviour {
         }
 
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update()
+    {
         timeSinceLastSpawned += Time.deltaTime;
         double start = background.start;
         roadPositions = new double[] { start + 1.16, start + 6.21, start + 11.53, start + 16.67 };
 
-        if (GameControl.instance.gameOver == false && timeSinceLastSpawned >= spawnRate) {
+        if (GameControl.instance.gameOver == false && timeSinceLastSpawned >= spawnRate)
+        {
             timeSinceLastSpawned = 0;
             roads[currentRoad].transform.position = new Vector2((float)roadPositions[currentRoadPosition], 0);
             currentRoad++;
@@ -46,10 +49,11 @@ public class RoadPool : MonoBehaviour {
             {
                 currentRoad = 0;
             }
-            if (currentRoadPosition >= roadPositions.Length) {
+            if (currentRoadPosition >= roadPositions.Length)
+            {
                 currentRoadPosition = 0;
             }
         }
-		
-	}
+
+    }
 }

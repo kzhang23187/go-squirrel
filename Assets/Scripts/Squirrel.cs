@@ -16,7 +16,6 @@ public class Squirrel : MonoBehaviour {
     void Start () {
         rb2d = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-
 	}
 	
 	// Update is called once per frame
