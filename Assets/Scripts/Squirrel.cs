@@ -55,9 +55,9 @@ public class Squirrel : MonoBehaviour {
 	}
     public void SetColliderForSprite(int spriteNum)
     {
-        //colliders[currentColliderIndex].enabled = false;
-        //currentColliderIndex = spriteNum;
-        //colliders[currentColliderIndex].enabled = true;
+        colliders[currentColliderIndex].enabled = false;
+        currentColliderIndex = spriteNum;
+        colliders[currentColliderIndex].enabled = true;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
