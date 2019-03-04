@@ -1343,7 +1343,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   carPoolSize: 7
   carPrefab: {fileID: 1186013123998824, guid: e23cdd3f1c9154a2095ba14e31042051, type: 2}
-  spawnRate: 0.5
+  spawnRate: 1
 --- !u!114 &1438373645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1400,7 +1400,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   carPoolSize: 7
   carPrefab: {fileID: 1996440396419192, guid: fbf0cffa57b894cafa206cb396d21079, type: 2}
-  spawnRate: 0.5
+  spawnRate: 1
 --- !u!114 &1438373649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1429,7 +1429,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   carPoolSize: 7
   carPrefab: {fileID: 1043454889305168, guid: 35e6f0ff5b97240f5af680ef1fe6b5fa, type: 2}
-  spawnRate: 0.5
+  spawnRate: 1
 --- !u!114 &1438373651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1458,7 +1458,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   carPoolSize: 7
   carPrefab: {fileID: 1845293355407056, guid: b91c6428292fc46c7adbe024517bbe4f, type: 2}
-  spawnRate: 0.5
+  spawnRate: 1
 --- !u!1 &1671969342
 GameObject:
   m_ObjectHideFlags: 0
