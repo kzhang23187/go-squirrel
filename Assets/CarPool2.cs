@@ -12,7 +12,7 @@ public class CarPool2 : MonoBehaviour
     //public static int carEnd = 10;
     //public static float[] spawnCoordinate;
 
-    public static float spawnYposition = 5.5f;
+    public static float spawnYposition = 6.5f;
     private Vector2 objectPosition = new Vector2(-15f, 0);
     public static GameObject[] cars;
     private float timeSinceLastSpawned;

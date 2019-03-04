@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class RepeatingBackground : MonoBehaviour {
+
     private BoxCollider2D groundCollider;
     private float groundLength;
     public float start;
@@ -24,7 +25,7 @@ public class RepeatingBackground : MonoBehaviour {
 		
 	}
     private void RepositionBackground() {
-        Vector2 groundOffset = new Vector2(groundLength * 2f, 0);
+        Vector2 groundOffset = new Vector2(groundLength * 4f, 0);
         transform.position = (Vector2)transform.position + groundOffset;
     }
 }

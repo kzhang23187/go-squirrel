@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CarPool : MonoBehaviour
+public class CarPool3 : MonoBehaviour
 {
     public int carPoolSize = 18;
     public GameObject carPrefab;
@@ -37,8 +37,8 @@ public class CarPool : MonoBehaviour
         if (GameControl.instance.gameOver == false && timeSinceLastSpawned >= spawnRate)
         {
             timeSinceLastSpawned = 0;
-            int randRoad = Random.Range(0, RoadPool.roads.Length);
-            float roadX = RoadPool.roads[randRoad].transform.position.x;
+            int randRoad = Random.Range(0, RoadPool3.roads.Length);
+            float roadX = RoadPool3.roads[randRoad].transform.position.x;
             cars[currentCar].transform.position = new Vector2(roadX, spawnYposition);
             currentCar++;
 
