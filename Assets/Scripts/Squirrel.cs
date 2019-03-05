@@ -34,7 +34,7 @@ public class Squirrel : MonoBehaviour {
                 rb2d.velocity = new Vector2(speed, 0);
                 count = 0;
             }
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && !Pause.pause)
             {
 
                 anim.SetTrigger("Idle");
