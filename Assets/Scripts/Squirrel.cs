@@ -8,7 +8,8 @@ public class Squirrel : MonoBehaviour {
 
     private Rigidbody2D rb2d;
     private bool isDead = false;
-    private Animator anim;
+    public Animator anim;
+    public int count = 0;
     public Collider2D[] colliders;
     private int currentColliderIndex = 0;
 
@@ -22,13 +23,12 @@ public class Squirrel : MonoBehaviour {
 	void Update () {
 
         if (isDead == false) {
-            int count = 0;
 
-            if (Input.GetMouseButton(0))
+            if (Input.GetMouseButton(0) && !Pause.pause)
             {
                 count = 1;
             }
-            if (Input.GetMouseButtonUp(0))
+            if (Input.GetMouseButtonUp(0) && !Pause.pause)
             {
                 anim.SetTrigger("Walk");
                 rb2d.velocity = new Vector2(speed, 0);
