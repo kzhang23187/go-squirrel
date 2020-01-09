@@ -9,7 +9,7 @@ public class Squirrel : MonoBehaviour {
     private Rigidbody2D rb2d;
     private bool isDead = false;
     public Animator anim;
-    public int count = 0;
+    public int isIdle = 0;
     public Collider2D[] colliders;
     private int currentColliderIndex = 0;
 
@@ -17,37 +17,51 @@ public class Squirrel : MonoBehaviour {
     void Start () {
         rb2d = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        anim.SetTrigger("Entry");
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
         if (isDead == false) {
-
-            if (Input.GetMouseButton(0) && !Pause.pause)
-            {
-                count = 1;
-            }
-            if (Input.GetMouseButtonUp(0) && !Pause.pause)
-            {
+            //for click to  pause: Input.GetMouseButton(0) 
+            if (Input.GetKey(KeyCode.D) && !Pause.pause && isIdle == 0) {
                 anim.SetTrigger("Walk");
-                rb2d.velocity = new Vector2(speed, 0);
-                count = 0;
+                rb2d.velocity = new Vector2(5f, 0);
             }
-            if (Input.GetMouseButtonDown(0) && !Pause.pause)
-            {
-
+            else if (Input.GetKey(KeyCode.A) && !Pause.pause) {
                 anim.SetTrigger("Idle");
                 rb2d.velocity = new Vector2(GameControl.instance.scrollSpeed, 0);
-                count = 1;
-                return;
-
-            }
-
-            if (count != 1 && transform.position.x > 0)
-            {
+            } else {
+                anim.SetTrigger("Walk");
                 rb2d.velocity = new Vector2(0, 0);
             }
+
+            //if (Input.GetKey(KeyCode.W) && !Pause.pause)
+            //{
+            //    isIdle = 1;
+            //}
+            //if (Input.GetKeyUp(KeyCode.W) && !Pause.pause)
+            //{
+            //    anim.SetTrigger("Walk");
+            //    rb2d.velocity = new Vector2(speed, 0);
+            //    isIdle = 0;
+            //    return;
+            //}
+            //if (Input.GetKeyDown(KeyCode.W) && !Pause.pause)
+            //{
+
+            //    anim.SetTrigger("Idle");
+            //    rb2d.velocity = new Vector2(GameControl.instance.scrollSpeed, 0);
+            //    isIdle = 1;
+            //    return;
+
+            //}
+
+            //if (isIdle != 1 && transform.position.x > 0)
+            //{
+            //    rb2d.velocity = new Vector2(0, 0);
+            //}
 
         }
 
