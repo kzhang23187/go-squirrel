@@ -23,50 +23,32 @@ public class Squirrel : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (isDead == false) {
-            //for click to  pause: Input.GetMouseButton(0) 
-            if (Input.GetKey(KeyCode.D) && !Pause.pause && isIdle == 0) {
-                anim.SetTrigger("Walk");
-                rb2d.velocity = new Vector2(5f, 0);
-            }
-            else if (Input.GetKey(KeyCode.A) && !Pause.pause) {
-                anim.SetTrigger("Idle");
-                rb2d.velocity = new Vector2(GameControl.instance.scrollSpeed, 0);
-            } else {
-                anim.SetTrigger("Walk");
-                rb2d.velocity = new Vector2(0, 0);
-            }
+	}
 
-            //if (Input.GetKey(KeyCode.W) && !Pause.pause)
-            //{
-            //    isIdle = 1;
-            //}
-            //if (Input.GetKeyUp(KeyCode.W) && !Pause.pause)
-            //{
-            //    anim.SetTrigger("Walk");
-            //    rb2d.velocity = new Vector2(speed, 0);
-            //    isIdle = 0;
-            //    return;
-            //}
-            //if (Input.GetKeyDown(KeyCode.W) && !Pause.pause)
-            //{
-
-            //    anim.SetTrigger("Idle");
-            //    rb2d.velocity = new Vector2(GameControl.instance.scrollSpeed, 0);
-            //    isIdle = 1;
-            //    return;
-
-            //}
-
-            //if (isIdle != 1 && transform.position.x > 0)
-            //{
-            //    rb2d.velocity = new Vector2(0, 0);
-            //}
-
+    public void Wait()
+    {
+        if (!isDead && !Pause.pause)
+        {
+            anim.SetTrigger("Idle");
+            rb2d.velocity = new Vector2(GameControl.instance.scrollSpeed, 0);
         }
 
-		
-	}
+    }
+    public void Dash() {
+        if (!isDead && !Pause.pause && isIdle == 0)
+        {
+            anim.SetTrigger("Walk");
+            rb2d.velocity = new Vector2(5f, 0);
+        }
+
+    }
+    public void Walk() {
+        if (!isDead && !Pause.pause) {
+            anim.SetTrigger("Walk");
+            rb2d.velocity = new Vector2(0, 0);
+        }
+
+    }
     public void SetColliderForSprite(int spriteNum)
     {
         colliders[currentColliderIndex].enabled = false;

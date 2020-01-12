@@ -11,7 +11,7 @@ public class RoadPool4 : MonoBehaviour
     private int currentRoadPosition;
 
     public GameObject roadPrefab;
-    public float spawnRate = 4f;
+    public float spawnRate = 1f;
 
     private Vector2 objectPosition = new Vector2(-15f, 0);
     private float timeSinceLastSpawned;

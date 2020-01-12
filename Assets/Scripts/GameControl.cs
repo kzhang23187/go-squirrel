@@ -10,7 +10,9 @@ public class GameControl : MonoBehaviour {
     public static List<string> leaders = new List<string>();
     public static List<int> leaderScores = new List<int>();
 
-    public GameObject gameOverText;
+    public GameObject gameOverText; 
+    public GameObject dashText; 
+    public GameObject waitText;
     public InputField nameInputField;
     public Text nameInput;
     public bool gameOver = false;
@@ -30,6 +32,9 @@ public class GameControl : MonoBehaviour {
         }
     }
     void Start () {
+        if (PlayerPrefs.HasKey("leaderboard")) {
+            DeserializeData(PlayerPrefs.GetString("leaderboard"));
+        }
         addedToLeaderBoard = false;
 	}
 	
@@ -37,6 +42,12 @@ public class GameControl : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    private void OnDisable()
+    {
+        PlayerPrefs.SetString("leaderboard", SerializeData());
+       //PlayerPrefs.SetString("leaderboard", "");
+    }
     public void SquirrelScored() {
         if (gameOver) {
             return;
@@ -49,6 +60,8 @@ public class GameControl : MonoBehaviour {
     public void SquirrelDied() {
         gameOverText.SetActive(true);
         gameOver = true;
+        dashText.SetActive(false);
+        waitText.SetActive(false);
 
          }
     public void UpdateLeader() {
@@ -80,6 +93,24 @@ public class GameControl : MonoBehaviour {
     }
     public void GoToLeaderboard() {
         SceneManager.LoadScene("Leaderboard");
+    }
+
+    private string SerializeData() {
+        string data = "";
+        for (int i = 0; i < leaders.Count; i++) {
+            data += leaders[i] + ":" + leaderScores[i] + ", ";
+        }
+        return data;
+    }
+    private void DeserializeData(string data) {
+        string[] separate_leaders = data.Split(',');
+        leaders.Clear();
+        leaderScores.Clear();
+        for (int i = 0; i < separate_leaders.Length - 1; i++) {
+            string[] leader_info = separate_leaders[i].Split(':');
+            leaders.Add(leader_info[0].Trim());
+            leaderScores.Add(int.Parse(leader_info[1].Trim()));
+        }
     }
 
 
